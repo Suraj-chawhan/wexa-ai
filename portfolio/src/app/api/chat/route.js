@@ -11,7 +11,7 @@ export async function POST(req) {
     }
 
     const model = new ChatGroq({
-      apiKey: "",
+      
       model: "llama-3.3-70b-versatile", // You can also use "llama3-70b-8192"
     });
 
@@ -24,10 +24,3 @@ export async function POST(req) {
   }
 }
 
-3
-
-
-gsk
-
-
-_go9QK2tEXxUHOOnTnNWpWGdyb3FY9db6hhpOlAJ4fvbSDgBHoOk
