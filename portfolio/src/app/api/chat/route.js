@@ -11,7 +11,7 @@ export async function POST(req) {
     }
 
     const model = new ChatGroq({
-      apiKey: "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",
+      apiKey: "",
       model: "llama-3.3-70b-versatile", // You can also use "llama3-70b-8192"
     });
 
@@ -23,3 +23,11 @@ export async function POST(req) {
     return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }
+
+3
+
+
+gsk
+
+
+_go9QK2tEXxUHOOnTnNWpWGdyb3FY9db6hhpOlAJ4fvbSDgBHoOk
