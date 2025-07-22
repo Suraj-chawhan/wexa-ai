@@ -11,6 +11,7 @@ import Navbar from "../../Components/Navbar.js";
 import Projects from "../../Components/ProjectSection.js";
 import gsap from "gsap";
 import Contact from "../../Components/Contact.js"
+
 const lipsyncManager = new Lipsync();
 
 export default function CharacterCanvas() {
@@ -24,7 +25,7 @@ export default function CharacterCanvas() {
     gsap.fromTo(
       headingRef.current.children,
       { x: "20px", opacity: 0 },
-      { x: "0px", opacity: 1, duration: 1, stagger: 0.2, ease: "power2.out",delay:2 }
+      { x: "0px", opacity: 1, duration: 1, stagger: 0.2, ease: "power2.out", delay: 2 }
     );
   }, []);
 
@@ -102,7 +103,7 @@ export default function CharacterCanvas() {
           <spotLight position={[5, 5, 5]} angle={0.4} intensity={3} color="#00FFFF" castShadow />
         </Canvas>
         <div style={{ position: "relative", zIndex: 1, textAlign: "center", color: "#fff", padding: "2rem" }} ref={headingRef}>
-          <h1 style={{ fontSize: "3rem", marginBottom: "1rem" }}>Hi, I'm Suraj Chawhan</h1>
+          <h1 style={{ fontSize: "3rem", marginBottom: "1rem" }}>Hi, I&apos;m Suraj Chawhan</h1>
           <p style={{ fontSize: "1.25rem", maxWidth: "600px", margin: "0 auto" }}>
             I’m a passionate developer creating innovative AI and interactive 3D experiences.
           </p>
@@ -142,7 +143,7 @@ export default function CharacterCanvas() {
         <audio ref={audioRef} crossOrigin="anonymous" onEnded={stop} />
       </section>
 
-  <Contact/>
+      <Contact />
     </div>
   );
 }
