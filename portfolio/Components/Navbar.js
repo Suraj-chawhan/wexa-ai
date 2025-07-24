@@ -1,9 +1,10 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import "./Navbar.css";
 import gsap from "gsap";
-import Image from "next/image"
+import Image from "next/image";
+import "./Navbar.css";
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
@@ -30,7 +31,7 @@ export default function Navbar() {
     }
   }, [isOpen]);
 
-  const navLinks = ["#hero", "#about", "#ai", "#projects", "#contact"];
+  const navLinks = ["#hero", "#skills", "#ai", "#projects", "#contact"];
 
   return (
     <nav
@@ -46,7 +47,8 @@ export default function Navbar() {
         zIndex: 1000,
       }}
     >
-      <Image src="/logo1.png" width={100} height={25}/>
+      {/* Logo */}
+      <Image src="/logo1.png" width={100} height={25} alt="Logo" />
 
       {/* Hamburger / Close Icon */}
       <div
@@ -56,14 +58,14 @@ export default function Navbar() {
           color: "#fff",
           fontSize: "1.8rem",
           cursor: "pointer",
-          zIndex: 1001, // Make sure it's above mobile nav
+          zIndex: 1001,
           display: "block",
         }}
       >
         {isOpen ? <FaTimes /> : <FaBars />}
       </div>
 
-      {/* Mobile Nav */}
+      {/* Mobile Navigation */}
       <ul
         ref={menuRef}
         className="mobile-nav"
@@ -95,13 +97,13 @@ export default function Navbar() {
                 fontWeight: "500",
               }}
             >
-              {href.replace("#", "").charAt(0).toUpperCase() + href.slice(2)}
+              {href.replace("#", "").charAt(0).toUpperCase() + href.replace("#", "").slice(1)}
             </a>
           </li>
         ))}
       </ul>
 
-      {/* Desktop Nav */}
+      {/* Desktop Navigation */}
       <ul
         className="desktop-nav"
         style={{
@@ -123,7 +125,7 @@ export default function Navbar() {
                 fontWeight: "500",
               }}
             >
-              {href.replace("#", "").charAt(0).toUpperCase() + href.slice(2)}
+              {href.replace("#", "").charAt(0).toUpperCase() + href.replace("#", "").slice(1)}
             </a>
           </li>
         ))}

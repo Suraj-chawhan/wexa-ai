@@ -1,6 +1,11 @@
 "use client";
 import React, { useEffect, useRef } from "react";
-import { FaRobot, FaSpotify, FaCloudDownloadAlt, FaImage } from "react-icons/fa";
+import {
+  FaRobot,
+  FaSpotify,
+  FaCloudDownloadAlt,
+  FaImage,
+} from "react-icons/fa";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -10,22 +15,38 @@ const projects = [
   {
     icon: <FaRobot size={36} />,
     title: "AI Chatbot Webapp",
-    description: "An intelligent chatbot interface powered by modern NLP APIs and Web Speech integration.",
+    description:
+      "An intelligent chatbot interface powered by modern NLP APIs and Web Speech integration.",
+    url: "https://www.ainzx.com",
   },
   {
     icon: <FaSpotify size={36} />,
     title: "Spotify Clone",
-    description: "A sleek music streaming UI replicating Spotify, built with React and Tailwind CSS.",
+    description:
+      "A sleek music streaming UI replicating Spotify, built with React and Tailwind CSS.",
+    url: "https://spotify-clone-latest.vercel.app/signin",
   },
   {
     icon: <FaCloudDownloadAlt size={36} />,
     title: "App Downloader",
-    description: "Web app for browsing and downloading Android apps with search & filtering.",
+    description:
+      "Web app for browsing and downloading Android apps with search & filtering.",
+    url: "https://app-download-webapp.vercel.app/",
   },
   {
     icon: <FaImage size={36} />,
     title: "Image Classifier",
-    description: "A deep learning CNN-based image classifier with file upload and result preview.",
+    description:
+      "A deep learning CNN-based image classifier with file upload and result preview.",
+    url: "https://huggingface.co/spaces/Suraj442917/Image_Prediction",
+  },
+  {
+    icon: <FaRobot size={36} />,
+    title: "Multi-Agent React Native App",
+    description:
+      "A cooperative multi-agent mobile app published on the Play Store.",
+    url: "https://play.google.com/store/search?q=Multi Agent",
+    isExternal: false,
   },
 ];
 
@@ -34,7 +55,6 @@ export default function Projects() {
 
   useEffect(() => {
     const cards = gsap.utils.toArray(".project-card");
-
     cards.forEach((card, i) => {
       gsap.from(card, {
         scrollTrigger: {
@@ -56,9 +76,9 @@ export default function Projects() {
       id="projects"
       ref={containerRef}
       style={{
-        background: "#0a0a0a",
+        background: "linear-gradient(120deg, #0f0c29, #302b63, #24243e)",
         color: "#fff",
-        padding: "5rem 2rem",
+        padding: "5rem 1.5rem",
       }}
     >
       <h2
@@ -66,7 +86,10 @@ export default function Projects() {
           textAlign: "center",
           marginBottom: "3rem",
           fontSize: "2.5rem",
-          color: "#6A0DAD",
+          fontWeight: "700",
+          background: "linear-gradient(to right, #6A0DAD, #00FFFF)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
         }}
       >
         Projects
@@ -75,7 +98,7 @@ export default function Projects() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
           gap: "2rem",
           maxWidth: "1200px",
           margin: "0 auto",
@@ -87,6 +110,7 @@ export default function Projects() {
             icon={project.icon}
             title={project.title}
             description={project.description}
+            url={project.url}
           />
         ))}
       </div>
@@ -94,23 +118,53 @@ export default function Projects() {
   );
 }
 
-function ProjectCard({ icon, title, description }) {
+function ProjectCard({ icon, title, description, url }) {
   return (
     <div
       className="project-card"
       style={{
-        background: "#1a1a1a",
-        padding: "2rem",
+        background: "rgba(255, 255, 255, 0.05)",
+        backdropFilter: "blur(10px)",
         borderRadius: "1rem",
-        border: "1px solid #333",
-        boxShadow: "0 0 10px rgba(0,0,0,0.4)",
-        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+        padding: "2rem",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
+        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3)",
         textAlign: "center",
+        transition: "all 0.3s ease-in-out",
+        cursor: "pointer",
+      }}
+      onClick={() => window.open(url, "_blank")}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = "translateY(-6px)";
+        e.currentTarget.style.boxShadow =
+          "0 12px 32px rgba(0, 0, 0, 0.5)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = "translateY(0)";
+        e.currentTarget.style.boxShadow =
+          "0 8px 32px rgba(0, 0, 0, 0.3)";
       }}
     >
       <div style={{ color: "#6A0DAD", marginBottom: "1rem" }}>{icon}</div>
-      <h3 style={{ fontSize: "1.2rem", marginBottom: "0.5rem", color: "#fff" }}>{title}</h3>
-      <p style={{ color: "#ccc", fontSize: "0.95rem", lineHeight: "1.5" }}>{description}</p>
+      <h3
+        style={{
+          fontSize: "1.3rem",
+          marginBottom: "0.5rem",
+          color: "#fff",
+        }}
+      >
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "inherit", textDecoration: "none" }}
+        >
+          {title}
+        </a>
+      </h3>
+      <p style={{ color: "#ccc", fontSize: "0.95rem", lineHeight: "1.6" }}>
+        {description}
+      </p>
     </div>
   );
 }
