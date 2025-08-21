@@ -18,15 +18,8 @@ import Audit from "./models/Audit.js";
 import { runWorkflowOnTicket } from "./workflow.js";
 
 const app = express();
-const allowedOrigin = "https://wexa-ai-frontend-git-main-surajchawhans-projects.vercel.app";
 
-app.use(
-  cors({
-    origin: allowedOrigin, // only this URL can access
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    credentials: true,
-  })
-);
+app.use(cors())
 
 app.use(express.json({ limit: "1mb" }));
 app.use(morgan("dev"));
