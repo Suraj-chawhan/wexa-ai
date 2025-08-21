@@ -1,0 +1,83 @@
+/* user-dashboard.css - simple, responsive, professional */
+.ud-container {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 16px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #0f172a;
+}
+
+.ud-title { text-align: center; margin-bottom: 18px; font-size: 24px; font-weight: 700; }
+
+.ud-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 18px;
+}
+
+.ud-card input,
+.ud-card textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #e6eef8;
+  margin-bottom: 10px;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.ud-actions-row { display:flex; justify-content:flex-end; }
+.ud-actions-row button {
+  background: linear-gradient(90deg,#4f46e5,#8b5cf6);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.ud-tickets { display: grid; gap: 16px; grid-template-columns: 1fr; }
+
+.ud-ticket {
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px;
+  overflow-wrap: anywhere;
+}
+
+.ud-ticket-header { display:flex; justify-content:space-between; gap: 12px; align-items:flex-start; }
+.ud-title-block { flex:1; min-width: 0; }
+.ud-ticket-title { font-weight:700; font-size:16px; color:#0b1220; margin-bottom:6px; }
+.ud-ticket-desc { color:#334155; font-size:13px; margin-bottom:8px; white-space:pre-wrap; }
+
+.ud-actions { display:flex; gap:10px; align-items:center; }
+.ud-status {
+  padding:5px 10px;
+  border-radius:8px;
+  font-size:13px;
+  font-weight:600;
+  text-transform:capitalize;
+}
+.ud-status.open { background:#e6f0ff; color:#0f172a; }
+.ud-status.pending_human { background:#fff4db; color:#6b4b00; }
+.ud-status.resolved { background:#def7e0; color:#14532d; }
+
+.ud-delete { cursor:pointer; color:#ef4444; }
+
+.ud-audit { margin-top:10px; background:#f8fafc; padding:10px; border-radius:8px; font-size:13px; }
+.ud-log { margin-bottom:8px; color:#334155; }
+.ud-resolved { margin-top:10px; color: #0f9d58; font-weight:700; }
+
+.ud-loading, .ud-empty { text-align:center; padding:26px; color:#64748b; }
+
+.ud-shadow { box-shadow: 0 8px 20px rgba(2,6,23,0.06); }
+
+/* responsive */
+@media (min-width: 768px) {
+  .ud-tickets { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1100px) {
+  .ud-tickets { grid-template-columns: repeat(3, 1fr); }
+}
